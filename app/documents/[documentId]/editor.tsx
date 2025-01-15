@@ -11,9 +11,13 @@ import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import ImageResize from "tiptap-extension-resize-image";
 import UnderLine from "@tiptap/extension-underline";
+import FontFamily from "@tiptap/extension-font-family";
+import TextStyle from "@tiptap/extension-text-style";
+import { Color } from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
 
 import { useEditorStore } from "@/store/use-editor-store";
-import { Underline } from "lucide-react";
+// import { Underline } from "lucide-react";
 
 export const Editor = () => {
   const { setEditor } = useEditorStore();
@@ -53,13 +57,19 @@ export const Editor = () => {
     extensions: [
       StarterKit,
       Table,
+      Color,
+      Highlight.configure({
+        multicolor: true,
+      }),
       TableCell,
+      FontFamily,
       ImageResize,
       TableHeader,
       TableRow,
       TaskList,
       Image,
       UnderLine,
+      TextStyle,
       TaskItem.configure({
         nested: true,
       }),
